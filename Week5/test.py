@@ -19,6 +19,7 @@ A1 = np.hstack((A, In))
 print(A1)
 P, L, U1 = linalg.lu(A1)
 # print(U1)
+# U1 = [U | Z]
 U = U1[:, :3]
 # print(U)
 def find_x(Z):
