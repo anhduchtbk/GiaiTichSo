@@ -34,14 +34,14 @@ print("P:", PP)
 print("L:",LL)
 print("U:", U)
 
-def swap_L(B):
+def swap_L(B): # doi cho hang ma tran L moi khi pivot
     temp = B[1][0]
     B[1][0] = B[2][0]
     B[2][0] = temp 
 
-def sort(B, b,i):
-    for j in range(len(B) - 1):
-        for k in range(j + 1, len(B)):
+def sort(B, b,i): # i la co ma tran dang duoc xet
+    for j in range(len(B) - 1): # hang cua ma tran
+        for k in range(j + 1, len(B)): # hang ma tran
             if(j >= i and ab(B[j][i]) < ab(B[k][i])):
                 swap(B, j, k)
                 swap_L(L)
