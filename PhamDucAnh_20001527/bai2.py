@@ -1,40 +1,18 @@
-# import pprint
-# import scipy
-# import scipy.linalg 
+# import numpy as np
+# import scipy.linalg as la
 
-# A = scipy.array([ [3, 17, 10], [2, 4, -2], [6, 18, -12]])
-# P, L, U = scipy.linalg.lu(A)
 
-# print ("A:")
-# pprint.pprint(A)
-
-# print ("P:")
-# pprint.pprint(P)
-
-# print ("L:")
-# pprint.pprint(L)
-
-# print ("U:")
-# pprint.pprint(U)
 
 from numpy import dot
 import scipy.linalg as la
 import numpy as np
 from math import fabs as ab
 
-# A = [[4, 5, -2], [2, -5, 2], [6, 2, 4]]
-# b = [[30], [4], [12]]
 A = [[89, 59, 77], [59, 107, 59], [77, 59, 89]]
 b = [[18], [2], [85]]
 L = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
 P = [[1, 0, 0], [0, 1, 0], [0, 0, 1]]
 
-AA = np.array(A)
-bb = np.array(b)
-PP, LL, U = la.lu(AA)
-print("P:", PP)
-print("L:",LL)
-print("U:", U)
 
 def swap_L(B): # doi cho hang ma tran L moi khi pivot
     temp = B[1][0]
@@ -66,6 +44,7 @@ def gauss(A, b):
                 A[i][k] = float(A[i][k] - h * A[c][k])
                 L[i][c] = h  
         c += 1 
+    
     print("L:", L)
     print("U:", A)
     print("b:", b)
@@ -86,5 +65,17 @@ def find_x():
 gauss(A, b)
 find_x()
 
+A = np.array([[89, 59, 77], [59, 107, 59], [77, 59, 89]])
+b = np.array([[18], [2], [85]])
 
-        
+L = la.cholesky(A)
+print("L:", L)
+
+Q, R = np.linalg.qr(A)
+print(Q)
+print(R)
+
+U1, S, V = np.linalg.svd(A)
+print("U1", U1)
+print("S", S)
+print("V", V)
